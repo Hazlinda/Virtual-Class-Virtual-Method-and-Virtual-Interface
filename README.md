@@ -42,6 +42,7 @@ Virtual function only can be displayed on the top parent class, if not it will t
 V C S   S i m u l a t i o n   R e p o r t 
 
 Running Child
+
 Playing football
            
 
@@ -85,6 +86,7 @@ Playing football
 V C S   S i m u l a t i o n   R e p o r t 
 
    Cmd: cmd=00000000 opcode=00
+   
    NewCmd: data3=0000 data2=0000 opcode=00
    
    
