@@ -1,7 +1,33 @@
-# Virtual-Class-Virtual-Method-and-Virtual-Interface
+# Virtual Class-Virtual Method-and-Virtual Interface
 
+VIRTUAL = MAYA
+As we known Virtual means almost or nearly as described, but not completely or according to strict definition. 
 
-# Pure Virtual Function 
+V i r t u a l    C l a s s
+
+Virtual class is a class that cannot be directly constructed
+1. A virtual class cannot be new() -ed
+2. A virtual class is an abstract template that MUST be extended
+
+By declaring a virtual class we actually create a class template. Pure virtual methods may only be declared in a virtual class (abstract class)
+
+Common misconception: methods in virtual classes are not virtual unless declared!
+
+V i r t u a l    M e t h o d
+
+Virtual method can be overridden by an extended-class method
+
+Overriding virtual methods in extended classes requires:
+1. Argument names must match
+2. Argument types must match
+3. Argument directions must match
+4. number of arguments must match
+5. Return types must match
+
+# Pure Virtual Method
+
+Pure virtual method is a method without a body that must be extended before being used
+Pure virtual methods may only be declared in a virtual class (abstract class)
 
 Virtual function only can be displayed on the top parent class, if not it will trigger error on compilation.
 
