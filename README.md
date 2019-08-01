@@ -24,6 +24,18 @@ Overriding virtual methods in extended classes requires:
 4. number of arguments must match
 5. Return types must match
 
+        // Common misconception:method in virtual classes are not virtual unless declared
+        module example9;
+            virtual class Base1; //declare a virtual class creates a class template
+                pure virtual function void showit ( arg_t i1 );
+                $display ("Base1 : arg_t = %2h", i1);
+                endfunction 
+            endclass
+  
+           Base1 b1;
+        endmodule
+
+
 # Pure Virtual Method
 
 Pure virtual method is a method without a body that must be extended before being used
