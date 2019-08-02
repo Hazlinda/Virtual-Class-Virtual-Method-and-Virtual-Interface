@@ -3,7 +3,7 @@
 VIRTUAL = MAYA
 As we known Virtual means almost or nearly as described, but not completely or according to strict definition. 
 
-V i r t u a l    C l a s s
+# V i r t u a l    C l a s s
 
 Virtual class is a class that cannot be directly constructed
 1. A virtual class cannot be new() -ed
@@ -13,7 +13,7 @@ By declaring a virtual class we actually create a class template. Pure virtual m
 
 Common misconception: methods in virtual classes are not virtual unless declared!
 
-V i r t u a l    M e t h o d
+# V i r t u a l    M e t h o d
 
 Virtual method can be overridden by an extended-class method
 
@@ -34,6 +34,49 @@ Overriding virtual methods in extended classes requires:
           Base1 b1;  
         endmodule
 
+# virtual Function
+
+    Module Top;
+    
+      class Cmd;
+      rand bit [15:0] a,b;
+      rand byte opcode;
+      rand bit cycle;
+  
+      virtual function void printmsg;
+      $display ("Cmd: cmd=%h opcode=%h", {a,b}, opcode);
+      endfunction
+  
+      endclass
+
+      class NewCmd extends Cmd;
+        virtual function void printmsg;
+          $display ("NewCmd: data3=%h data2=%h opcode=%h",a,b, opcode);
+        endfunction
+      endclass
+      
+      module top;
+      Cmd b1 = new();
+      NewCmd e1 = new();
+
+      task doMsg;
+      b1.printmsg();
+      endtask
+
+      initial begin
+        doMsg;
+        b1 = e1;
+        doMsg;
+      end
+      
+    endmodule
+    
+V C S   S i m u l a t i o n   R e p o r t 
+
+   Cmd: cmd=00000000 opcode=00
+   
+   NewCmd: data3=0000 data2=0000 opcode=00
+   
 
 # Pure Virtual Method
 
@@ -83,48 +126,7 @@ Running Child
 Playing football
            
 
-# virtual Function
 
-    Module Top;
-    
-      class Cmd;
-      rand bit [15:0] a,b;
-      rand byte opcode;
-      rand bit cycle;
-  
-      virtual function void printmsg;
-      $display ("Cmd: cmd=%h opcode=%h", {a,b}, opcode);
-      endfunction
-  
-      endclass
-
-      class NewCmd extends Cmd;
-        virtual function void printmsg;
-          $display ("NewCmd: data3=%h data2=%h opcode=%h",a,b, opcode);
-        endfunction
-      endclass
-      
-      module top;
-      Cmd b1 = new();
-      NewCmd e1 = new();
-
-      task doMsg;
-      b1.printmsg();
-      endtask
-
-      initial begin
-        doMsg;
-        b1 = e1;
-        doMsg;
-      end
-      
-    endmodule
-    
-V C S   S i m u l a t i o n   R e p o r t 
-
-   Cmd: cmd=00000000 opcode=00
-   
-   NewCmd: data3=0000 data2=0000 opcode=00
    
    
    
