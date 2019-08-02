@@ -1,4 +1,4 @@
-# Virtual Class-Virtual Method-and-Virtual Interface
+# Virtual Class Virtual Method and Virtual Interface
 
 VIRTUAL = MAYA
 As we known Virtual means almost or nearly as described, but not completely or according to strict definition. 
@@ -31,8 +31,7 @@ Overriding virtual methods in extended classes requires:
                 $display ("Base1 : arg_t = %2h", i1);
                 endfunction 
             endclass
-  
-           Base1 b1;
+          Base1 b1;  
         endmodule
 
 
